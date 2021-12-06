@@ -19,11 +19,25 @@ Jupyter notebook that contains data preparation, analysis, and visualizations %m
 
 
 ## Libraries used in the analysis
-The following libraries were imported and used in the project. import pandas as pd import holoviews as hv from fbprophet import Prophet import hvplot.pandas import datetime as dt %matplotlib inline
+The following libraries were imported and dependencies were used:
+import pandas as pd
+from pathlib import Path
+import tensorflow as tf
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.models import Sequential
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler,OneHotEncoder
 
 
-## Analysis and Visualisation
-Identify unusual patterns in time series data by using Pandas and other tools. Mine for patterns in seasonality by using the hvPlot visualization tool. Build sales-forecast and user-interest predictive models for the firm by using Facebook Prophet.
+## Analysis and Model optimization
+To optimize your model for a predictive accuracy as close to 1 as possible, the following techniques were used:
+• Adjust the input data by dropping different features columns to ensure that no variables or outliers confuse the model. Done
+• Add more neurons (nodes) to a hidden layer. Done
+• Add more hidden layers. Done
+• Use different activation functions for the hidden layers. Done
+• Add to or reduce the number of epochs in the training regimen. Done
+
+
 
 
 ## Deliverables
@@ -32,3 +46,66 @@ This project consists of three technical deliverables as follows:
 • Preprocess data for use on a neural network model.
 • Use the model-fit-predict pattern to compile and evaluate a binary classification model using a neural network.
 • Optimize the neural network model.
+. After finishing your models, display the accuracy scores achieved by each model, and compare the results. 
+. Save each models as an HDF5 file, labeled as:
+   Original model as -  AlphabetSoup.h5
+   Alernative model 1 as - A1_AlphabetSoup.h5
+   Alternative model 2 as - A2_AlphabetSoup.h5
+   
+## Results
+The accuracy and loss of the three neural network models did not change significantly despite trying different values for output neurons and different activation functions for the hidden layers. The original model has the best result with accuracy of 0.537 and a loss of 0.903.
+
+#### Model: "sequential_11"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_23 (Dense)            (None, 3)                 9         
+                                                                 
+ dense_24 (Dense)            (None, 2)                 8         
+                                                                 
+ dense_25 (Dense)            (None, 1)                 3         
+                                                                 
+=================================================================
+Total params: 20
+Trainable params: 20
+Non-trainable params: 0
+_________________________________________________________________
+Original Model Results
+804/804 - 1s - loss: 0.6903 - accuracy: 0.5376 - 801ms/epoch - 996us/step
+Loss: 0.6903157830238342, Accuracy: 0.5375913381576538
+
+
+#### Model: "sequential_12"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_26 (Dense)            (None, 3)                 9         
+                                                                 
+ dense_27 (Dense)            (None, 1)                 4         
+                                                                 
+=================================================================
+Total params: 13
+Trainable params: 13
+Non-trainable params: 0
+_________________________________________________________________
+Alternative Model 1 Results
+804/804 - 1s - loss: 0.6906 - accuracy: 0.5355 - 778ms/epoch - 968us/step
+Loss: 0.6905868053436279, Accuracy: 0.5355310440063477
+
+
+#### Model: "sequential_19"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_40 (Dense)            (None, 3)                 9         
+                                                                 
+ dense_41 (Dense)            (None, 1)                 4         
+                                                                 
+=================================================================
+Total params: 13
+Trainable params: 13
+Non-trainable params: 0
+_________________________________________________________________
+Alternative Model 2 Results
+804/804 - 1s - loss: 0.6908 - accuracy: 0.5346 - 737ms/epoch - 917us/step
+Loss: 0.6907570958137512, Accuracy: 0.5345591902732849
