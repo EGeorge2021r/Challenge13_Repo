@@ -12,11 +12,8 @@ Reason: Alphabet Soup’s business team receives many funding applications from 
 The business team has given you a CSV file containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. The CSV file contains a variety of information about each business, including whether or not it ultimately became successful. 
 
 
-
-
 ## Technology
 Jupyter notebook that contains data preparation, analysis, and visualizations %matplotlib inline Python
-
 
 ## Libraries used in the analysis
 The following libraries were imported and dependencies were used:
@@ -28,7 +25,6 @@ from tensorflow.keras.models import Sequential
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler,OneHotEncoder
 
-
 ## Analysis and Model optimization
 To optimize your model for a predictive accuracy as close to 1 as possible, the following techniques were used:
 • Adjust the input data by dropping different features columns to ensure that no variables or outliers confuse the model. Done
@@ -37,11 +33,7 @@ To optimize your model for a predictive accuracy as close to 1 as possible, the 
 • Use different activation functions for the hidden layers. Done
 • Add to or reduce the number of epochs in the training regimen. Done
 
-
-
-
 ## Deliverables
-
 This project consists of three technical deliverables as follows:
 • Preprocess data for use on a neural network model.
 • Use the model-fit-predict pattern to compile and evaluate a binary classification model using a neural network.
@@ -53,59 +45,70 @@ This project consists of three technical deliverables as follows:
    Alternative model 2 as - A2_AlphabetSoup.h5
    
 ## Results
-The accuracy and loss of the three neural network models did not change significantly despite trying different values for output neurons and different activation functions for the hidden layers. The original model has the best result with accuracy of 0.537 and a loss of 0.903.
+The accuracy and loss of the three neural network models did not change significantly despite trying different activation functions for the hidden layers. The original model has the best result with accuracy of 0.537 and a loss of 0.903.
 
-#### Model: "sequential_11"
+#### Original Model nn with training data
+Model: "sequential_13"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- dense_23 (Dense)            (None, 3)                 9         
+ dense_37 (Dense)            (None, 6)                 18        
                                                                  
- dense_24 (Dense)            (None, 2)                 8         
+ dense_38 (Dense)            (None, 6)                 42        
                                                                  
- dense_25 (Dense)            (None, 1)                 3         
+ dense_39 (Dense)            (None, 1)                 7         
                                                                  
 =================================================================
-Total params: 20
-Trainable params: 20
+Total params: 67
+Trainable params: 67
 Non-trainable params: 0
 _________________________________________________________________
 Original Model Results
-804/804 - 1s - loss: 0.6903 - accuracy: 0.5376 - 801ms/epoch - 996us/step
-Loss: 0.6903157830238342, Accuracy: 0.5375913381576538
+268/268 - 0s - loss: 0.6911 - accuracy: 0.5335 - 307ms/epoch - 1ms/step
+Loss: 0.6910977959632874, Accuracy: 0.533527672290802
 
-
-#### Model: "sequential_12"
+####  Alternative Model nn_A1 with test data
+Model: "sequential_24"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- dense_26 (Dense)            (None, 3)                 9         
+ dense_85 (Dense)            (None, 6)                 18        
                                                                  
- dense_27 (Dense)            (None, 1)                 4         
+ dense_86 (Dense)            (None, 12)                84        
+                                                                 
+ dense_87 (Dense)            (None, 1)                 13        
+                                                                 
+ dense_88 (Dense)            (None, 1)                 2         
                                                                  
 =================================================================
-Total params: 13
-Trainable params: 13
+Total params: 117
+Trainable params: 117
 Non-trainable params: 0
 _________________________________________________________________
 Alternative Model 1 Results
-804/804 - 1s - loss: 0.6906 - accuracy: 0.5355 - 778ms/epoch - 968us/step
-Loss: 0.6905868053436279, Accuracy: 0.5355310440063477
+268/268 - 0s - loss: 0.6906 - accuracy: 0.5338 - 438ms/epoch - 2ms/step
+Loss: 0.6906254887580872, Accuracy: 0.5337609052658081
 
 
-#### Model: "sequential_19"
+#### Alternative Model nn_A2 with test data
+Model: "sequential_35"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- dense_40 (Dense)            (None, 3)                 9         
+ dense_102 (Dense)           (None, 6)                 18        
                                                                  
- dense_41 (Dense)            (None, 1)                 4         
+ dense_103 (Dense)           (None, 18)                126       
+                                                                 
+ dense_104 (Dense)           (None, 1)                 19        
                                                                  
 =================================================================
-Total params: 13
-Trainable params: 13
+Total params: 163
+Trainable params: 163
 Non-trainable params: 0
 _________________________________________________________________
 Alternative Model 2 Results
-804/804 - 1s - loss: 0.6908 - accuracy: 0.5346 - 737ms/epoch - 917us/step
-Loss: 0.6907570958137512, Accuracy: 0.5345591902732849
+268/268 - 1s - loss: 0.6909 - accuracy: 0.5335 - 639ms/epoch - 2ms/step
+Loss: 0.6908572912216187, Accuracy: 0.533527672290802
+
+Conclusion:
+By comparing the three models, it is observed that Alternative model 1 has aslightly better accuracy than the original training model and the Alternative 2 model.
